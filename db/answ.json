@@ -1,0 +1,24 @@
+{
+  "name": "answ",
+  "list": [{
+    "type": "radio",
+    "variants": [{
+      "value": "qqq",
+      "isCorrect": false
+    }, {
+      "value": "eee",
+      "isCorrect": true
+    }],
+    "question": "12"
+  }, {
+    "type": "radio",
+    "variants": [{
+      "value": "ttt",
+      "isCorrect": false
+    }, {
+      "value": "yyy",
+      "isCorrect": true
+    }],
+    "question": "13"
+  }]
+}

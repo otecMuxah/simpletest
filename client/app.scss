@@ -1,0 +1,21 @@
+@import './styles/reset';
+
+body {
+  margin: 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.wrapper{
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.button{
+  cursor: pointer;
+}
+input.error{
+  border-color: red;
+}

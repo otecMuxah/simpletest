@@ -1,0 +1,15 @@
+<div ng-controller="testCntrl">
+  test page
+  <ul>
+    <li ng-repeat="item in form.list">
+      <strong>{{item.question}}</strong>
+      <ul>
+        <li ng-repeat="variant in item.variants">
+          <label>
+            <input name="{{item.$$hashKey}}" type="{{item.type}}"> {{variant.value}}
+          </label>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

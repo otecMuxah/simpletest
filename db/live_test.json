@@ -1,0 +1,1 @@
+{"name":"Live Test","list":[{"type":"radio","variants":[{"value":"var1","isCorrect":true},{"value":"var2","isCorrect":false},{"value":"var3","isCorrect":false}],"question":"Quast1"},{"type":"radio","variants":[{"value":"v1","isCorrect":false},{"value":"v2","isCorrect":false},{"value":"v3","isCorrect":false},{"value":"v4","isCorrect":true}],"question":"Quest2","notes":"Is it?"}]}

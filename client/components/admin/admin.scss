@@ -1,0 +1,43 @@
+.st-admin{
+  $margin-bottom: 15px;
+
+ .form-control{
+   margin: 0 0 $margin-bottom;
+ }
+
+  &--flag[type]{
+    margin: 11px 0 0;
+  }
+
+  &--variant.form-control{
+    width: 50%;
+  }
+
+  &--variant{
+    margin: 0 0 $margin-bottom;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+
+    .form-control{
+      margin: 0 10px;
+    }
+
+    .btn-group{
+      min-width: 200px;
+      .active {
+        box-shadow: 0 0 5px black inset;
+      }
+    }
+
+  }
+
+  &--question{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &--titles{width: 40%}
+
+  &--fields{width: 55%;}
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="test">
+<head>
+    <meta charset="UTF-8">
+    <title>Tests</title>
+    <base href="/" target="_blank">
+    <style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper ng-cloak"
+     ng-controller="AppController as app">
+
+    <header-component></header-component>
+
+    <ui-view></ui-view>
+
+</div>
+</body>
+</html>
+

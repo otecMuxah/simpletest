@@ -1,0 +1,123 @@
+<form class="st-admin"
+      action="#"
+      ng-submit="admin.addQuestion($event)">
+
+    <fieldset>
+        <ul class="st-admin--tests">
+            <li ng-repeat="test in admin.tests track by $index">
+                <a href=""
+                   ng-click="admin.getTest(test)">{{test}}</a>
+            </li>
+        </ul>
+    </fieldset>
+
+    <fieldset>
+        <p>
+            <h1>Title</h1>
+            <input type="text"
+               class="form-control"
+               ng-model="admin.name"
+               required
+               ng-class="{error: !admin.name}">
+        </p>
+
+        <div class="st-admin--question">
+
+            <div class="st-admin--titles">
+                <input type="text"
+                       class="form-control"
+                       placeholder="Add question"
+                       required
+                       ng-model="form.question">
+
+                <textarea class="form-control"
+                          cols="30"
+                          rows="5"
+                          ng-model="admin.form.notes"></textarea>
+            </div>
+
+            <div class="st-admin--fields">
+                <select class="form-control"
+                        ng-options="item.value for item in admin.options"
+                        ng-change="admin.selectType()"
+                        ng-model="admin.typeAnswer"></select>
+
+                <ul>
+                    <li class="st-admin--variant"
+                        ng-repeat="variant in admin.form.variants track by $index">
+
+                        <input type="{{admin.typeAnswer.type}}"
+                               class="st-admin--flag"
+                               ng-class="{'form-control': admin.typeAnswer.type == 'text'}">
+                        <input ng-if="admin.typeAnswer.type != 'text'"
+                               class="form-control st-admin--variant"
+                               type="text"
+                               ng-model="admin.form.variants[$index].value">
+
+                        <div class="btn-group">
+                            <button type="button"
+                                    class="btn btn-success"
+                                    ng-click="admin.addVariant()">Add</button>
+
+                            <button type="button"
+                                    class="btn btn-danger"
+                                    ng-click="admin.removeVariant($index)">Remove</button>
+
+                            <button type="button"
+                                    class="btn btn-info"
+                                    ng-click="admin.markCorrect(variant)"
+                                    ng-class="{active: variant.isCorrect}">Correct</button>
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <button class="btn btn-default"
+                ng-if="admin.editableField == undefined"
+                type="submit">
+            Add question
+        </button>
+
+        <span ng-if="admin.editableField > -1"
+              ng-click="admin.saveQuestion()">
+            Save question
+        </span>
+
+    </fieldset>
+</form>
+<ul>
+    <li ng-repeat="field in admin.list track by $index">
+
+        <strong>{{field.question}}</strong>
+
+        <p>{{field.notes}}</p>
+
+        <ul>
+            <li ng-repeat="variant in field.variants track by $index">
+                <input type="{{admin.form.type}}"
+                       ng-model="variant.value">
+                <span ng-if="field.type != 'text'"
+                      type="text">
+                    {{variant.value}}
+                </span>
+                <span ng-if="variant.isCorrect"> (marked as correct)</span>
+            </li>
+        </ul>
+
+        <button class="btn btn-default"
+                type="button"
+                ng-click="admin.editQuestion($index)">Edit</button>
+        <button class="btn btn-default"
+                type="button"
+                ng-click="admin.deleteQuestion($index)">Delete</button>
+
+    </li>
+</ul>
+
+<button class="btn btn-default"
+      type="button"
+      ng-click="admin.saveAll()">
+    Save all questions
+</button>
